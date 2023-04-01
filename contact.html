@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;400;500;600&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+	<title>Contact me</title>
+</head>
+
+<body class="contactbg">
+
+	<div class="ui">
+		<div class="container min-vh-100 d-flex justify-content-center align-items-center" id="contactcontainer">
+			<div class="row" id="mobile">
+				<div class="col-xl-12 col-lg-12" id="left">
+					<div class="row">
+						<div class="col-lg-6 ms-3">
+							<div class="texto">
+								<h4 id="logo">Josefina Stevenson</h4>
+								<h4>“Security is a process, not a product.”</h4>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xl-6 m-3" id="icons">
+							<a href="mailto:jstevenson@gmail.com?subject=Contact&body=Hi!"><i
+									class="bi bi-envelope"></i></a>
+							<a href="https://wa.me/541135151050" target="_blank"><i class="bi bi-whatsapp"></i></a>
+							<a href="https://github.com/karmakiller23" target="_blank"><i class="bi bi-github"></i></a>
+							<a href="https://www.linkedin.com/in/braian-ceravolo/" target="_blank"><i
+									class="bi bi-linkedin"></i></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-12 col-lg-12" id="right">
+					<div class="row">
+						<div class="d-flex flex-row-reverse">
+							<a href="index.html" id="backdesktop">
+								<button type="button" class="btn" id="back">Go back</button>
+							</a>
+						</div>
+					</div>
+					<div class="contenedor">
+						<div class="formulario">
+							<h2>Let's get in touch</h2>
+							<p id="touch">Write your message below and I'll be in touch</p>
+							<form>
+								<div class="mb-3">
+									<label for="name" class="form-label">Enter your name</label>
+									<input type="text" class="form-control" id="txt" placeholder="Richard Thompson"
+										name="name">
+								</div>
+								<div class="mb-3 mt-3">
+									<label for="email" class="form-label">Enter a valid email:</label>
+									<input type="email" class="form-control" id="email"
+										placeholder="rthompson@gmail.com" name="email">
+								</div>
+								<div class="mb-3 mt-3">
+									<label for="message" class="form-label">Leave your message:</label>
+									<textarea class="form-control" rows="5" id="message" name="text"></textarea>
+								</div>
+								<div class="botonera">
+									<button type="button" class="btn mb-5" id="send">Send message</button>
+									<a href="index.html">
+										<button type="button" class="btn" id="backmobile">Go back</button>
+									</a>
+								</div>
+
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="overlay">
+		<dialog id="Dialog">
+			
+			<div class="dummy ">
+				<div class="d-flex justify-content-end">
+					<a href="index.html">
+						<button type="button" class="btn" id="back2">Go back</button>
+					</a>
+				</div>
+				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player id="myPlayer" src="https://assets2.lottiefiles.com/packages/lf20_uuekehla.json" background="white"
+					delay="0.5s" speed="1"></lottie-player>
+			</div>
+			<div class="message">
+			<p id="message1"></p>
+			<p id="countdown"></p>
+			</div>
+
+		</dialog>
+	</div>
+
+</body>
+
+<script type="text/JavaScript">
+    function init() {
+        (function() {
+            var dialog = document.getElementById('Dialog');
+            var player = document.querySelector('lottie-player');
+            var overlay = document.getElementById('overlay');
+
+            document.getElementById('send').onclick = function() {
+                dialog.show();
+                player.play();
+                overlay.style.display = 'block';
+            };
+
+            document.getElementById('back').onclick = function() {
+                overlay.style.display = 'none';
+            };
+
+            player.addEventListener('complete', function() {
+                console.log('before updating message');
+                // Show the message here
+                document.getElementById('message1').innerHTML = "I'll contact you soon.";
+                console.log('after updating message');
+            });
+        })();
+
+        function updateCountdown() {
+            var countdownElement = document.getElementById('countdown');
+            var targetDate = new Date('July 1, 2023 00:00:00');
+            var currentDate = new Date();
+            var timeRemaining = targetDate - currentDate;
+            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
+    window.onload = init;
+</script>
+
+</html>
+
+
