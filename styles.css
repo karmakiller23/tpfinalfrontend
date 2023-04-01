@@ -3,10 +3,7 @@
     margin-right: 18%;
     margin-top: 48px;
     background: linear-gradient(180deg, #2A3143 0%, #07090C 100%);
-    overflow-x: clip;
-
-
-
+    
 }
 
 .contactbg {
@@ -15,9 +12,10 @@
 
 }
 
-#container {
-    overflow-x: hidden;
+wrapper{
+    overflow-x: clip;
 }
+
 
 img {
     max-width: 380px;
