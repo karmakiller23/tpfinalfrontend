@@ -3,7 +3,7 @@
     margin-right: 18%;
     margin-top: 48px;
     background: linear-gradient(180deg, #2A3143 0%, #07090C 100%);
-    overflow-x: hidden;
+    overflow-x: clip;
 
 
 
